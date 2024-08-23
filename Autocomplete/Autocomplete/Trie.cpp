@@ -147,6 +147,25 @@ void execute(Trie& trie)
         std::string input;
         std::getline(std::cin, input);
 
+        // Проверяем ввод на наличие только латинских символов и пробелов
+        bool isValidInput = true;
+        for (char ch : input)
+        {
+            if (!std::isalpha(ch) && ch != ' ')  // Проверяем, является ли символ буквой или пробелом
+            {
+                isValidInput = false;
+                break;
+            }
+            // Приводим к нижнему регистру
+            ch = std::tolower(ch);
+        }
+
+        if (!isValidInput)
+        {
+            std::cout << "Invalid input. Please enter only Latin letters." << std::endl;
+            continue; // Пропускаем текущую итерацию и запрашиваем ввод заново
+        }
+
         str += input;
 
         if (input.empty())
