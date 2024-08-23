@@ -39,6 +39,7 @@ void Trie::deleteTrie(TrieNode* node)
     delete node;
 }
 
+
 void Trie::insert(const std::string& word)
 {
     TrieNode* currentNode = root;
@@ -53,6 +54,7 @@ void Trie::insert(const std::string& word)
     }
     currentNode->isEndOfWord = true;
 }
+
 
 std::vector<std::string> Trie::suggest(const std::string& prefix)
 {
@@ -89,7 +91,7 @@ void Trie::loadFromFile(const std::string& filename)
     file.close();
 }
 
-void clearConsole()
+void clearConsole() // очистка консоли дл€ разных систем
 {
 #if defined(_WIN32) || defined(_WIN64)
     system("cls");
@@ -128,14 +130,8 @@ void display(Trie& trie, const std::string& prefix)
     {
         for (const std::string& suggestion : suggestions)
         {
-            //clearConsole();
+
             std::cout << suggestion << std::endl;
-            /*std::string input;
-            std::getline(std::cin, input);
-            if (input == " ")
-            {
-                break;
-            }*/
 
         }
         std::cout << str;
@@ -155,7 +151,7 @@ void execute(Trie& trie)
 
         if (input.empty())
         {
-            break; // continue; дл€ продолжени€ работы программы после ввода пустой строки
+            break;
         }
 
         prefix += input;

@@ -3,6 +3,8 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 
 
 #define ALPHABET_SIZE 26
@@ -26,6 +28,7 @@ private:
 
     void suggestHelper(TrieNode* node, const std::string& currentPrefix, std::vector<std::string>& suggestions);
 
+
 public:
     Trie();
 
@@ -38,6 +41,7 @@ public:
     std::vector<std::string> suggest(const std::string& prefix);
 
     void loadFromFile(const std::string& filename);
+
 };
 
 void clearConsole();
